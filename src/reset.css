@@ -4,4 +4,6 @@
     padding: 0;
     box-sizing: border-box; /* Optional: Ensures padding and border are included in element's total width and height */
   }
-  
+  :root{
+    background-color: #f3f4f6;
+  }

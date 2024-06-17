@@ -25,9 +25,9 @@ function Aside() {
   }, []);
 
   return (
-    <aside className={`z-50 fixed left-0 w-full lg:w-1/7 lg:h-full lg:pt-3 bg-white shadow-md 
+    <aside className={`z-50 fixed left-0 w-full lg:w-1/7 lg:h-full lg:pt-1 bg-white shadow-lg 
       ${ screenWidth <= 1024 && (
-        isScrollingUp ? '' : ' -translate-y-[59px]'
+        isScrollingUp ? '' : ' -translate-y-[50px]'
   )} transition-transform duration-300 ease-in-out
     `}>
       <nav className='flex lg:flex-col items-center lg:space-y-0'> {/** space-y-4 */}

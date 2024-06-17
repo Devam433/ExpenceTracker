@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from '../UI/Logo';
 import Avatar from '../UI/Avatar';
+import Dropdown from '../UI/Dropdown';
 
 function Header() {
   const [isScrollingUp, setIsScrollingUp] = useState(true); // Initial state: header visible
@@ -34,8 +35,9 @@ function Header() {
         <a href="#home">
           <Logo />
         </a>
-        <div>
+        <div className='flex items-center gap-8'>
           <Avatar />
+          <Dropdown/>
         </div>
       </div>
     </header>
