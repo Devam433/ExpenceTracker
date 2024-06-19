@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: [
     require('daisyui'),
+    require('tailwind-scrollbar'),
   ],
   daisyui: {
     themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
