@@ -42,7 +42,7 @@ const TransactionHistoryChart = () => {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart', // Title of the chart
+        text: 'Transaction Chart', // Title of the chart
       },
     },
     scales: {
