@@ -6,8 +6,19 @@ import {
   CheckIcon,
   ChevronRightIcon,
 } from '@radix-ui/react-icons';
+import { Navigate } from 'react-router-dom';
+import authService from '../../appwrite/authConfig';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/authSlice';
 
 const Dropdown = () => {
+const dispatch = useDispatch()
+  async function handleLogout() {
+    await authService.logout();
+    dispatch(logout());
+    
+  }
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -29,6 +40,11 @@ const Dropdown = () => {
           </DropdownMenu.Item>
           <DropdownMenu.Item className="group text-[18px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:cursor-pointer hover:bg-gray-100" >
             How to use{' '}
+          </DropdownMenu.Item>
+          <DropdownMenu.Item
+            className="group text-[18px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:cursor-pointer hover:bg-gray-100" onClick={handleLogout}
+          >
+            LogOut{' '}
           </DropdownMenu.Item>
           <DropdownMenu.Item
             className="group text-[18px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:cursor-pointer hover:bg-gray-100"

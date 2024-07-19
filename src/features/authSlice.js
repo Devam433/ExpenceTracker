@@ -15,8 +15,11 @@ const authSlice = createSlice({
             state.userData = action.payload;
         },
         logout: (state)=>{
+            console.log(state.userData)
             state.userData = null;
             state.status = false;
+            console.log('User data is now null')
+            console.log(state.userData)
         },
     }
 })

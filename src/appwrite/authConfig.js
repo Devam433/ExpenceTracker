@@ -14,27 +14,33 @@ export class AuthService{
         this.avatars = new Avatars(this.client);
     }
 
-    async createAccount({Email,Password,Name}){
+    async createAccount({email,password,name}){
         try{
-            const userAccount = await this.account.create(ID.unique(),Email,Password,Name);
+            console.log('creating account');
+            console.log(email,password,name);
+            const userAccount = await this.account.create(ID.unique(),email,password,name);
+            console.log(userAccount);
             return userAccount;
         }catch(err){
             // console.log(err.code);//409 means email already exsts
+            console.log(err.code);
             return err;
         }
     }
 
-    async login({Email,Password}){
+    async login({email,password}){
         try{
-            return await this.account.createEmailPasswordSession(Email,Password)
+            console.log('creating session')
+            return await this.account.createEmailPasswordSession(email,password)
         }catch(err){
+            console.log('error in session creation',err);
             return err;
         }
     }
 
     async getCurrentUser(){
         try {
-            return await this.account.get(); //for this to not through error, Session must be created
+            return await this.account.get(); //for this to not through error, Session(login) must be created
         } catch (error) {
             console.log(error)
         }
@@ -52,22 +58,22 @@ export class AuthService{
     }
 
     async logout(){
-        try {
+        try { 
             return await this.account.deleteSessions();
         } catch (error) {
             console.log(error);
         }
     }
 
-    async googleLogin() {
-        const res = await this.account.createOAuth2Session( //remove res, as no return
-            'google',
-            'https://blog-it-omega.vercel.app',
-            'https://localhost:5173/login',
-        )
-        console.log(res); //remove 
-        return res; //remove
-    }
+    // async googleLogin() {
+    //     const res = await this.account.createOAuth2Session( //remove res, as no return
+    //         'google',
+    //         'https://blog-it-omega.vercel.app',
+    //         'https://localhost:5173/login',
+    //     )
+    //     console.log(res); //remove 
+    //     return res; //remove
+    // }
 }
 
 const authService = new AuthService;
