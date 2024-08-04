@@ -1,14 +1,17 @@
+
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import authService from '../../appwrite/authConfig';
-import { Link, useNavigate } from 'react-router-dom';
+import dbConfig from '../../appwrite/dbConfig'
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Input from '../UI/Input';
 import Button from '../UI/Button';
 import { login as authServiceLogin } from '../../features/authSlice'
+
 function SignupForm() {
 
-    const {register,handleSubmit, formState:{errors, isSubmitting}, setError} = useForm();
+    const { register,handleSubmit, formState:{errors, isSubmitting}, setError } = useForm();
     const dispatch = useDispatch();
 
     async function createAccount(data){
@@ -16,9 +19,10 @@ function SignupForm() {
         try {
             const res = await authService.createAccount(data);
             if (res.code === 409) {
-                throw { code: 409, message: 'Email already exists!' };
+                throw { code: 409, message: 'Email already exists!'};
             }
             console.log('account created')
+            
             const loginRes = await authService.login({Email:data.email,Password:data.password});
             if(loginRes) {
                 console.log(loginRes);
@@ -32,7 +36,7 @@ function SignupForm() {
                 }
             }
             else {
-                console.error('Failed to auto login. Try manually',);
+                console.error('Failed to auto login. Try manually');
             }
         }
         catch (error) {

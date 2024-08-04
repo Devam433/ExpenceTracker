@@ -4,24 +4,28 @@ import Button from '../UI/Button'
 import GoogleSvg from '../../assets/GoogleSvg'
 import authService from '../../appwrite/authConfig'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login as authServiceLogin } from '../../features/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 function LoginForm() {
-
     const {register, setError, formState:{errors}, handleSubmit} = useForm();
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
+    const userData = useSelector(state => state.auth.userData);
     async function login(data) {
         try {
             const res = await authService.login(data);
             if(res.code == 401) {
                 throw{code:401, message:"Invalid credentials!"}
-            }
-            console.log('session has been created',res);//as session is created so now get the userData
-            const user = await authService.getCurrentUser();
-            console.log(user);
-            dispatch(authServiceLogin(user))
+                }
+                console.log('session has been created',res);//as session is created so now get the userData
+                const user = await authService.getCurrentUser();
+                console.log(user);
+                if(user) {
+                    dispatch(authServiceLogin(user));
+                    navigate('/dashboard') 
+                }
         } catch (error) {
             if(error.code == 401) {
                 setError('root',{

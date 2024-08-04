@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../UI/Logo';
 import Avatar from '../UI/Avatar';
 import Dropdown from '../UI/Dropdown';
+import Button from '../UI/Button';
+import { useSelector } from 'react-redux';
+import { NavLink } from "react-router-dom"
 
 function Header() {
+
+  const userStatus = useSelector(state=>state.auth.status);
   const [isScrollingUp, setIsScrollingUp] = useState(true); // Initial state: header visible
   const screenWidth = window.innerWidth;
   useEffect(() => {
@@ -32,13 +37,22 @@ function Header() {
   )} transition-transform duration-300 ease-in-out`}
     >
       <div className='flex justify-between items-center'>
-        <a href="#home">
-          <Logo />
-        </a>
+          <NavLink>
+            <Logo/>
+          </NavLink>
+        {
+        userStatus === true ?
         <div className='flex items-center gap-8'>
-          <Avatar />
-          <Dropdown/>
+            <Avatar />
+            <Dropdown/>
         </div>
+        :
+        <div className='flex items-center gap-8'>
+            <Button href={'/signup'}>SingUp</Button>
+            <Button href={'/login'}>Login</Button>
+        </div>
+        }
+        
       </div>
     </header>
   );

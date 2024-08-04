@@ -27,7 +27,7 @@ export class AuthService{
             return err;
         }
     }
-
+ 
     async login({email,password}){
         try{
             console.log('creating session')
@@ -37,7 +37,7 @@ export class AuthService{
             return err;
         }
     }
-
+ 
     async getCurrentUser(){
         try {
             return await this.account.get(); //for this to not through error, Session(login) must be created

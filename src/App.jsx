@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { login, logout } from "./features/authSlice.js"
 
 function App() {
-  console.log('App run')
+console.log('App run')
 const userData1 = useSelector(state=>state.auth.userData)
  const dispatch = useDispatch();
   useEffect(()=>{

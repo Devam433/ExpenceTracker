@@ -5,13 +5,14 @@ import RecentExpences from '../components/Tables/RecentExpences'
 import TransactionHistory from '../components/Tables/TransactionHistory'
 import TransactionHistoryChart from '../components/Graphs/TransactionHistoryChart'
 import {useSelector} from 'react-redux'
+import SetupForm from '../components/Forms/SetupForm'
 function Dashboard() {
 
   const userData = useSelector(state=>state.auth.userData);
   console.log(userData)
 
   return (
-    <main className='w-full h-[100%] flex justify-between'>  
+    <main className='w-full h-[100%] flex justify-between mt-[60px]'>  
       <section className=' w-full h-full flex flex-col md:w:full lg:w-4/6'> {/** total 3 components */}
         <div className='h-full w-full flex flex-col md:flex-row gap-10 md:gap-3 lg:flex-row lg:gap-6'> {/** */}
           <div className='w-full flex gap-3 md:w-2/4 md:flex-col lg:w-5/12 md:h-3/5'>   {/** Mini card */}
@@ -44,6 +45,7 @@ function Dashboard() {
       <div className='hidden w-full h-[100px] bg-slate-100 border rounded-md mb-4 lg:block'></div>
             <TransactionHistory/>
       </div>
+      <SetupForm/>
     </main>
   )
 }

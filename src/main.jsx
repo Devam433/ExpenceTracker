@@ -19,11 +19,11 @@ const router = createBrowserRouter(
       errorElement:null,
       children:[
         {
-          path:'',
+          path:'',//index path
           element:<Home/>
         },
         {
-          path:'dashboard', //index path
+          path:'dashboard', 
           element:<Dashboard/>,
         },
         {

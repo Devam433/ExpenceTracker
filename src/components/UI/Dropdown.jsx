@@ -6,17 +6,18 @@ import {
   CheckIcon,
   ChevronRightIcon,
 } from '@radix-ui/react-icons';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import authService from '../../appwrite/authConfig';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../features/authSlice';
 
 const Dropdown = () => {
+  const navigate = useNavigate();
 const dispatch = useDispatch()
   async function handleLogout() {
     await authService.logout();
     dispatch(logout());
-    
+    navigate('/')
   }
 
   return (

@@ -4,6 +4,7 @@ const config ={
     appwriteDatabaseId: String(import.meta.env.VITE_APPWRITE_DATABASE_ID),
     appwriteMonthlyIncomeCollectionId: String(import.meta.env.VITE_APPWRITE_MONTHLYINCOME_COLLECTION_ID),
     appwriteTransactionCollectionId: String(import.meta.env.VITE_APPWRITE_TRANSACTION_COLLECTION_ID),
+    appwriteUsersCollectionId: String(import.meta.env.VITE_APPWRITE_USERS_COLLECTION_ID)
 }
 
 export default config;
