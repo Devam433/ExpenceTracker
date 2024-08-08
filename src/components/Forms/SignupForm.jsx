@@ -3,14 +3,14 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import authService from '../../appwrite/authConfig';
 import dbConfig from '../../appwrite/dbConfig'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Input from '../UI/Input';
 import Button from '../UI/Button';
 import { login as authServiceLogin } from '../../features/authSlice'
 
 function SignupForm() {
-
+    const navigate = useNavigate();
     const { register,handleSubmit, formState:{errors, isSubmitting}, setError } = useForm();
     const dispatch = useDispatch();
 
@@ -24,12 +24,15 @@ function SignupForm() {
             console.log('account created')
             
             const loginRes = await authService.login({Email:data.email,Password:data.password});
+            console.log('after login',loginRes)
             if(loginRes) {
                 console.log(loginRes);
                 const userData = await authService.getCurrentUser();
                 if(userData) {
                     console.log(userData);
                     dispatch(authServiceLogin(userData));
+                    console.log('Navigating to /dashboard');
+                    navigate('/dashboard')
                 }
                 else {
                     console.error('Unable to get userData')//if unable to get userData then navigate to /login

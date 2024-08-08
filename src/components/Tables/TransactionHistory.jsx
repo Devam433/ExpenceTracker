@@ -2,7 +2,7 @@ import React from 'react'
 
 function TransactionHistory() {
   return (
-   <div className="h-full border rounded-md">
+   <div className=" border rounded-md h-[630px]">
       <div className="relative shadow-md sm:rounded-lg overflow-hidden h-full">
         <div className="overflow-y-scroll h-full scrollbar-none"> {/* Adjust height as needed */}
           <table className=" table w-full text-sm text-left text-gray-500 ">

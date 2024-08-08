@@ -37,7 +37,7 @@ function Dashboard() {
           </div>
           </div>
         </div> {/**className='relative top-[10%] md:absolute w-full md:top-[65%] lg:w-[63%] ' */}
-          <div className='relative top-[10%] md:absolute w-full md:top-[83%] lg:w-[63%] shadow-md rounded-md bg-slate-100 border'> {/**last 30 days data */}
+          <div className='relative top-[10%] md:absolute w-full md:top-[83%] lg:w-[52.8%] shadow-md rounded-md bg-slate-100 border'> {/**last 30 days data */}
           <TransactionHistoryChart />
           </div>
       </section>
@@ -45,7 +45,7 @@ function Dashboard() {
       <div className='hidden w-full h-[100px] bg-slate-100 border rounded-md mb-4 lg:block'></div>
             <TransactionHistory/>
       </div>
-      <SetupForm/>
+
     </main>
   )
 }

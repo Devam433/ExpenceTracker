@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import Aside from './Aside'
+import SetupForm from '../Forms/SetupForm';
 
 function PageLayout({children}) {
 
@@ -11,6 +12,11 @@ function PageLayout({children}) {
           userStatus && <Aside/>
         }
         <div className="flex-1">
+          { userStatus &&
+        <SetupForm
+          className=" absolute z-[100] px-8"
+        />
+        }
           {children}
         </div>
     </div>

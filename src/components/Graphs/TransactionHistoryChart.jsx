@@ -55,7 +55,7 @@ const TransactionHistoryChart = () => {
     },
   };
 
-  return <Line data={data} options={options} />;
+  return <Line data={data} options={options} className='h-[200px]'/>;
 };
 
 export default TransactionHistoryChart;
