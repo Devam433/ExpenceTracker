@@ -1,13 +1,18 @@
 import React, { useDebugValue, useEffect, useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useController, useForm } from 'react-hook-form'
 import Input from '../UI/Input';
 function SetupForm({className}) {
     const [formStep,setFormStep] = useState(0);
     const [tagValue,setTagValue] = useState("");
-    const [tags,setTags] = useState([]);
-    const {register, handleSubmit,formState:{errors}, watch, setError} = useForm();
+    // const [tags,setTags] = useState([]);
+    const {register, handleSubmit,formState:{errors}, control, watch, setError} = useForm();
     const dialogRef = useRef();
 
+    const { field: { value: tags, onChange } } = useController({
+        name: "tags",
+        control,
+        defaultValue: []
+    }); 
     function nextStep(){
         setFormStep(prev=>prev+1);
     }
@@ -30,20 +35,22 @@ function SetupForm({className}) {
     function handleFormSubmit(data){
         console.log(data)
         console.log(dialogRef.current)
-        dialogRef.current?.close();
+        // dialogRef.current?.close();
     }
 
     function addTag(event){
         if(event.keyCode===13 && tagValue){
             event.preventDefault();
-            setTags(prev=>{
-                return [...prev,{id:crypto.randomUUID(), value:tagValue}]
-            });
+            // setTags(prev=>{
+            //     return [...prev,{id:crypto.randomUUID(), value:tagValue}]
+            // });
+            onChange([...tags, { id: crypto.randomUUID(), value: tagValue }]);
             setTagValue('');
         }
     }
     function handleDeleteTag(id){
-        setTags(prev=>prev.filter((item)=>item.id != id))
+        // setTags(prev=>prev.filter((item)=>item.id != id))
+        onChange(tags.filter(tag => tag.id !== id));
     }
 
     useEffect(()=>{
