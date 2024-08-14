@@ -10,13 +10,14 @@ import { useNavigate } from 'react-router-dom';
 import authService from '../../appwrite/authConfig';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../features/authSlice';
-
+import { remove } from '../../features/usersSlice';
 const Dropdown = () => {
   const navigate = useNavigate();
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
   async function handleLogout() {
     await authService.logout();
     dispatch(logout());
+    dispatch(remove());
     navigate('/')
   }
 

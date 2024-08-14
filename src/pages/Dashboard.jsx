@@ -9,6 +9,7 @@ import SetupForm from '../components/Forms/SetupForm'
 function Dashboard() {
 
   const userData = useSelector(state=>state.auth.userData);
+  const userDocAllDetails = useSelector(state=>state.users.userDocAllDetails);
   console.log(userData)
 
   return (
@@ -26,7 +27,7 @@ function Dashboard() {
             {
               {  
                 title:'Monthly Income',
-                content:'Rs. 30000',
+                content:`Rs. ${userDocAllDetails?.monthlyIncome}`,
               }
             }
             </Card>

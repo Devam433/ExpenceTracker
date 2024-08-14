@@ -13,6 +13,7 @@ const authSlice = createSlice({
         login: (state, action)=>{
             state.userData = action.payload;
             state.status = true;
+            console.log('redux slice userData',state.userData)
         },
         logout: (state)=>{
             console.log(state.userData)

@@ -18,56 +18,6 @@ function RecentExpences() {
                 <td>3000</td> 
                 <td>Today</td> 
               </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr >
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
-              <tr className='bg-white border-b'>
-                <td>Burger King</td> 
-                <td>3000</td> 
-                <td>Today</td> 
-              </tr>
               </tbody>
             </table>
     </>
