@@ -48,8 +48,8 @@ function Header() {
         </div>
         :
         <div className='flex items-center gap-8'>
-            <Button href={'/signup'}>SingUp</Button>
-            <Button href={'/login'}>Login</Button>
+            <Button href={'/signup'} className='bg-blue-500 text-white font-semibold py-2 px-4 rounded shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500'>SingUp</Button>
+            <Button href={'/login'} className='bg-gray-500 text-white font-semibold py-2 px-4 rounded shadow-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500'>Login</Button>
         </div>
         }
         

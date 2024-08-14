@@ -9,6 +9,9 @@ module.exports = {
       width: {
         '1/7': '14.2857143%', // 1 divided by 7
       },
+      colors: {
+        setpFormH1: 'rgb(30 69 137 / 87%)',
+      },
     },
   },
   plugins: [

@@ -28,14 +28,14 @@ const dispatch = useDispatch();
         console.log('userData got')
         console.log(userData);
         dbService.getUserDocument(Data.$id).then(result=>{
+          if(result>=400){throw { message: 'error id getting user doc'};}
           dispatch(addUser(result));
           navigate('/dashboard');
         })
-        
       }
     })
     .catch(error=>{
-      console.log('User not found',error);
+      console.log('User not found',error.message);
     })
   },[]);
 
