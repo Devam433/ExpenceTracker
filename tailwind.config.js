@@ -9,14 +9,18 @@ module.exports = {
       width: {
         '1/7': '14.2857143%', // 1 divided by 7
       },
+      colors: {
+        setpFormH1: 'rgb(30 69 137 / 87%)',
+      },
     },
   },
   plugins: [
     require('daisyui'),
+    require('tailwind-scrollbar'),
   ],
   daisyui: {
     themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-    darkTheme: "dark", // name of one of the included themes for dark mode
+    darkTheme: "light", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes
